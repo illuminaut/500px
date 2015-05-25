@@ -4,7 +4,7 @@ _500px = {};
 // @param credentialRequestCompleteCallback {Function} Callback function to call on
 // completion. Takes one argument, credentialToken on success, or Error on
 // error.
-Fitbit.requestCredential = function (options, credentialRequestCompleteCallback) {
+_500px.requestCredential = function (options, credentialRequestCompleteCallback) {
   // support both (options, callback) and (callback).
   if (!credentialRequestCompleteCallback && typeof options === 'function') {
     credentialRequestCompleteCallback = options;
@@ -31,7 +31,7 @@ Fitbit.requestCredential = function (options, credentialRequestCompleteCallback)
       loginPath = loginPath + "&android=true";
     }
   }
-  var loginUrl = Meteor.absoluteUrl(loginPath);
+  var loginUrl = Meteor.absoluteUrl(loginPath,{replaceLocalhost: true});
   OAuth.launchLogin({
     loginService: "500px",
     loginStyle: loginStyle,

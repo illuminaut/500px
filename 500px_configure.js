@@ -5,7 +5,7 @@ Template.configureLoginServiceDialogFor500px.helpers({
 });
 Template.configureLoginServiceDialogFor500px.fields = function () {
   return [
-    {property: 'client_id', label: 'Client ID'},
+    {property: 'consumerKey', label: 'Client ID'},
     {property: 'secret', label: 'Client Secret'}
   ];
 };

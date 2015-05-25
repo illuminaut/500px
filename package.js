@@ -24,5 +24,5 @@ Package.onUse(function(api) {
   api.addFiles('500px_client.js', 'client');
 
 
-  api.export('500px');
+  api.export('_500px');
 });

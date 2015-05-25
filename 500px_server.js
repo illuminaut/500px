@@ -7,12 +7,12 @@ urls = {
   authenticate: "https://api.500px.com/v1/oauth/authorize"
 };
 
-_500px.whitelistedFields = ['fullname','userpic_url','email','photos_count','affection','in_favorites_count','friends_count','followers_count'];
+_500px.whitelistedFields = ['fullname','userpic_url','email','photos_count','affection','in_favorites_count','friends_count','followers_count','avatars'];
 
 Oauth.registerService('500px', 1, urls, function(oauthBinding) {
 
   var identity = oauthBinding.get('https://api.500px.com/v1/users').data;
-
+  console.log(identity);
   var serviceData = {
     id: identity.user.id,
     name: identity.user.username,
@@ -27,7 +27,14 @@ Oauth.registerService('500px', 1, urls, function(oauthBinding) {
   return {
     serviceData: serviceData,
     options: {
-      profile: profile
+      profile: {
+        name: identity.user.username,
+        email: identity.user.email,
+        fullname: identity.user.fullname,
+        firstname: identity.user.firstname,
+        lastname: identity.user.lastname,
+        avatar: identity.user.avatar
+      }//profile
     }
   };
 });
