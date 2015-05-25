@@ -1,6 +1,6 @@
 Package.describe({
   name: 'illuminaut:500px',
-  version: '0.1.1',
+  version: '0.1.2',
   summary: 'An implementation of the 500px OAuth flow.',
   git: 'https://github.com/illuminaut/500px.git',
   documentation: 'README.md'
@@ -24,5 +24,5 @@ Package.onUse(function(api) {
   api.addFiles('500px_client.js', 'client');
 
 
-  api.export('_500px');
+  api.export('Fivehundredpx');
 });
